@@ -1,0 +1,138 @@
+import type { Chat, Message } from '@/shared/types'
+import { mockUsers, mockCandidates } from './users'
+
+export const mockChats: Chat[] = [
+  {
+    id: 'chat-1',
+    participants: ['user-1', 'user-2'],
+    participantProfiles: [mockCandidates[0], mockUsers[1]],
+    lastMessage: {
+      id: 'msg-5',
+      chatId: 'chat-1',
+      senderId: 'user-2',
+      content: 'Отлично! Жду вас на интервью в среду в 14:00.',
+      isRead: false,
+      createdAt: '2024-03-20T10:30:00Z',
+    },
+    unreadCount: 1,
+    createdAt: '2024-03-15T10:00:00Z',
+    updatedAt: '2024-03-20T10:30:00Z',
+  },
+  {
+    id: 'chat-2',
+    participants: ['user-1', 'user-3'],
+    participantProfiles: [mockCandidates[0], mockUsers[2]],
+    lastMessage: {
+      id: 'msg-10',
+      chatId: 'chat-2',
+      senderId: 'user-1',
+      content: 'Спасибо за обратную связь!',
+      isRead: true,
+      createdAt: '2024-03-19T16:45:00Z',
+    },
+    unreadCount: 0,
+    createdAt: '2024-03-10T10:00:00Z',
+    updatedAt: '2024-03-19T16:45:00Z',
+  },
+  {
+    id: 'chat-3',
+    participants: ['candidate-2', 'user-2'],
+    participantProfiles: [mockCandidates[1], mockUsers[1]],
+    lastMessage: {
+      id: 'msg-15',
+      chatId: 'chat-3',
+      senderId: 'user-2',
+      content: 'Ваш оффер готов, проверьте почту.',
+      isRead: true,
+      createdAt: '2024-03-18T14:00:00Z',
+    },
+    unreadCount: 0,
+    createdAt: '2024-03-05T10:00:00Z',
+    updatedAt: '2024-03-18T14:00:00Z',
+  },
+]
+
+export const mockMessages: Message[] = [
+  // Chat 1 messages
+  {
+    id: 'msg-1',
+    chatId: 'chat-1',
+    senderId: 'user-2',
+    content: 'Здравствуйте, Александр! Мы рассмотрели вашу заявку на позицию Frontend Developer.',
+    isRead: true,
+    createdAt: '2024-03-15T10:00:00Z',
+  },
+  {
+    id: 'msg-2',
+    chatId: 'chat-1',
+    senderId: 'user-1',
+    content: 'Здравствуйте! Спасибо, что связались. Очень рад!',
+    isRead: true,
+    createdAt: '2024-03-15T10:15:00Z',
+  },
+  {
+    id: 'msg-3',
+    chatId: 'chat-1',
+    senderId: 'user-2',
+    content: 'Ваше резюме нам понравилось. Хотели бы пригласить вас на техническое интервью. Удобно ли вам в среду?',
+    isRead: true,
+    createdAt: '2024-03-15T10:20:00Z',
+  },
+  {
+    id: 'msg-4',
+    chatId: 'chat-1',
+    senderId: 'user-1',
+    content: 'Да, среда отлично подходит. В какое время?',
+    isRead: true,
+    createdAt: '2024-03-15T11:00:00Z',
+  },
+  {
+    id: 'msg-5',
+    chatId: 'chat-1',
+    senderId: 'user-2',
+    content: 'Отлично! Жду вас на интервью в среду в 14:00.',
+    isRead: false,
+    createdAt: '2024-03-20T10:30:00Z',
+  },
+  // Chat 2 messages
+  {
+    id: 'msg-6',
+    chatId: 'chat-2',
+    senderId: 'user-3',
+    content: 'Добрый день! Я рекрутер из TechCorp. Увидела ваш отклик.',
+    isRead: true,
+    createdAt: '2024-03-10T10:00:00Z',
+  },
+  {
+    id: 'msg-7',
+    chatId: 'chat-2',
+    senderId: 'user-1',
+    content: 'Добрый день! Да, меня очень заинтересовала ваша вакансия.',
+    isRead: true,
+    createdAt: '2024-03-10T10:30:00Z',
+  },
+  {
+    id: 'msg-8',
+    chatId: 'chat-2',
+    senderId: 'user-3',
+    content: 'Расскажите подробнее о вашем опыте работы с React.',
+    isRead: true,
+    createdAt: '2024-03-10T11:00:00Z',
+  },
+  {
+    id: 'msg-9',
+    chatId: 'chat-2',
+    senderId: 'user-1',
+    content: 'У меня 6 лет опыта. Работал с крупными проектами, внедрял микрофронтенды...',
+    isRead: true,
+    createdAt: '2024-03-10T11:30:00Z',
+  },
+  {
+    id: 'msg-10',
+    chatId: 'chat-2',
+    senderId: 'user-1',
+    content: 'Спасибо за обратную связь!',
+    isRead: true,
+    createdAt: '2024-03-19T16:45:00Z',
+  },
+]

@@ -1,0 +1,1 @@
+import{t as e}from"./react-Bn92FLxv.js";import{n as t}from"./middleware-CnuY9Usu.js";var n=e()(t((e,t)=>({candidateIds:[],toggleCandidate:n=>e({candidateIds:t().candidateIds.includes(n)?t().candidateIds.filter(e=>e!==n):[...t().candidateIds,n]})}),{name:`kadrovik-employer-fav-candidates`}));export{n as t};
