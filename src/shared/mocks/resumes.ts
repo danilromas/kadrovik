@@ -46,7 +46,7 @@ export const mockResumes: Resume[] = [
     education: [
       {
         id: 'edu-1',
-        institution: 'МГУ им. Ломоносова',
+        institution: 'КФУ им. В.И. Вернадского',
         degree: 'Магистр',
         field: 'Прикладная математика и информатика',
         startYear: 2014,

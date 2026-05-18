@@ -187,7 +187,7 @@ export function VacanciesPage() {
                   <SelectValue placeholder="Город" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value={SELECT_ALL}>Все города</SelectItem>
+                  <SelectItem value={SELECT_ALL}>Весь Крым</SelectItem>
                   {CITIES.map(city => (
                     <SelectItem key={city.value} value={city.value}>{city.label}</SelectItem>
                   ))}
@@ -291,7 +291,7 @@ export function VacanciesPage() {
                           <SelectValue placeholder="Иерархия страна → регион → город" />
                         </SelectTrigger>
                         <SelectContent className="max-h-72">
-                          <SelectItem value={SELECT_ALL}>Все города</SelectItem>
+                          <SelectItem value={SELECT_ALL}>Весь Крым</SelectItem>
                           {flattenCities().map((row) => (
                             <SelectItem key={`${row.country}-${row.region}-${row.city}`} value={row.city}>
                               {row.country} · {row.region} · {row.city}

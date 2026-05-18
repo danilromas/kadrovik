@@ -40,7 +40,7 @@ const defaultValues: FormValues = {
   title: '',
   profession: PROFESSIONS[0] ?? 'Разработка',
   specialization: 'Frontend',
-  city: 'Москва',
+  city: 'Симферополь',
   description: '',
   salaryMin: 100000,
   salaryMax: 200000,

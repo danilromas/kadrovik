@@ -78,7 +78,7 @@ export function CompaniesPage() {
                   <SelectValue placeholder="Город" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value={SELECT_ALL}>Все города</SelectItem>
+                  <SelectItem value={SELECT_ALL}>Весь Крым</SelectItem>
                   {CITIES.map(c => (
                     <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>
                   ))}

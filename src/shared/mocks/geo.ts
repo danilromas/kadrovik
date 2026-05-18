@@ -1,4 +1,4 @@
-/** Иерархия Country → Region → City (демо для ТЗ G.1) */
+/** Иерархия Country → Region → City (Крым) */
 
 export interface GeoCity {
   id: string
@@ -23,41 +23,32 @@ export const mockGeoCountries: GeoCountry[] = [
     name: 'Россия',
     regions: [
       {
-        id: 'ru-mow',
-        name: 'Москва и область',
+        id: 'ru-crimea',
+        name: 'Республика Крым',
         cities: [
-          { id: 'moscow', name: 'Москва' },
-          { id: 'khimki', name: 'Химки' },
+          { id: 'simferopol', name: 'Симферополь' },
+          { id: 'yalta', name: 'Ялта' },
+          { id: 'evpatoria', name: 'Евпатория' },
+          { id: 'kerch', name: 'Керчь' },
+          { id: 'feodosia', name: 'Феодосия' },
+          { id: 'alushta', name: 'Алушта' },
+          { id: 'sudak', name: 'Судак' },
+          { id: 'bahchisaray', name: 'Бахчисарай' },
+          { id: 'dzhankoy', name: 'Джанкой' },
+          { id: 'saki', name: 'Саки' },
+          { id: 'krasnoperekopsk', name: 'Красноперекопск' },
+          { id: 'belogorsk', name: 'Белогорск' },
+          { id: 'armyansk', name: 'Армянск' },
+          { id: 'shchelkino', name: 'Щёлкино' },
+          { id: 'chernomorskoe', name: 'Черноморское' },
         ],
       },
       {
-        id: 'ru-spb',
-        name: 'Санкт-Петербург и ЛО',
+        id: 'ru-sevastopol',
+        name: 'Севастополь',
         cities: [
-          { id: 'spb', name: 'Санкт-Петербург' },
-          { id: 'vsevolozhsk', name: 'Всеволожск' },
-        ],
-      },
-      {
-        id: 'ru-sfo',
-        name: 'Сибирский ФО',
-        cities: [
-          { id: 'nsk', name: 'Новосибирск' },
-          { id: 'ekb', name: 'Екатеринбург' },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'kz',
-    name: 'Казахстан',
-    regions: [
-      {
-        id: 'kz-al',
-        name: 'Алматы',
-        cities: [
-          { id: 'almaty', name: 'Алматы' },
-          { id: 'astana', name: 'Астана' },
+          { id: 'sevastopol', name: 'Севастополь' },
+          { id: 'inkerman', name: 'Инкерман' },
         ],
       },
     ],

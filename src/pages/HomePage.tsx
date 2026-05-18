@@ -45,12 +45,12 @@ export function HomePage() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Найдите работу мечты вместе с{' '}
+              Работа в Крыму с{' '}
               <span className="text-primary">КАДРОВИК</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 text-pretty">
-              Тысячи вакансий от лучших работодателей России. Создайте резюме и начните
-              получать предложения уже сегодня.
+              Вакансии от работодателей Крыма — от Симферополя до Ялты и Севастополя.
+              Создайте резюме и начните получать предложения уже сегодня.
             </p>
 
             {/* Search Form */}
@@ -73,7 +73,7 @@ export function HomePage() {
                     value={selectedCity}
                     onChange={(e) => setSelectedCity(e.target.value)}
                   >
-                    <option value="">Все города</option>
+                    <option value="">Весь Крым</option>
                     {CITIES.map((city) => (
                       <option key={city.value} value={city.value}>
                         {city.label}

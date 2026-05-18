@@ -17,12 +17,12 @@ export const mockUsers: (User | CandidateProfile | EmployerProfile)[] = [
     gender: 'male',
     birthDate: '1992-05-15',
     citizenship: 'Россия',
-    city: 'Москва',
-    searchCities: ['Москва', 'Санкт-Петербург'],
+    city: 'Симферополь',
+    searchCities: ['Симферополь', 'Севастополь'],
     education: [
       {
         id: 'edu-1',
-        institution: 'МГУ им. Ломоносова',
+        institution: 'КФУ им. В.И. Вернадского',
         degree: 'Магистр',
         field: 'Информатика',
         startYear: 2010,
@@ -111,8 +111,8 @@ export const mockCandidates: CandidateProfile[] = [
     gender: 'male',
     birthDate: '1995-08-22',
     citizenship: 'Россия',
-    city: 'Санкт-Петербург',
-    searchCities: ['Санкт-Петербург', 'Москва'],
+    city: 'Севастополь',
+    searchCities: ['Севастополь', 'Симферополь'],
     education: [],
     languages: [
       { name: 'Русский', level: 'native' },
@@ -135,8 +135,8 @@ export const mockCandidates: CandidateProfile[] = [
     gender: 'female',
     birthDate: '1997-03-10',
     citizenship: 'Россия',
-    city: 'Москва',
-    searchCities: ['Москва'],
+    city: 'Ялта',
+    searchCities: ['Ялта'],
     education: [],
     languages: [
       { name: 'Русский', level: 'native' },

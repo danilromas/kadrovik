@@ -44,7 +44,7 @@ export function EmployerCandidateSearchPage() {
 
       <div className="relative max-w-md">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input className="pl-10" placeholder="Например: React или Москва" value={q} onChange={(e) => setQ(e.target.value)} />
+        <Input className="pl-10" placeholder="Например: React или Симферополь" value={q} onChange={(e) => setQ(e.target.value)} />
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
