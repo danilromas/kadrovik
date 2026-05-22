@@ -40,6 +40,7 @@ export const platformSettingsSchema = z.object({
   chatEnabled: z.boolean(),
   pipelineEnabled: z.boolean(),
   referralsEnabled: z.boolean(),
+  aiAssistantEnabled: z.boolean(),
 })
 
 export type PlatformSettingsFormValues = z.infer<typeof platformSettingsSchema>

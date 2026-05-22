@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { AiAssistantTrigger, useAiPageContext } from '@/features/ai-assistant'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
@@ -49,6 +50,24 @@ export function ResumeFormPage() {
     },
   })
 
+  const watched = form.watch()
+
+  const aiContext = useMemo(
+    () => ({
+      page: 'resume-form',
+      summary: isCreate ? 'Создание резюме' : 'Редактирование резюме',
+      data: {
+        title: watched.title,
+        profession: watched.profession,
+        specialization: watched.specialization,
+        about: watched.about?.slice(0, 200),
+      },
+    }),
+    [isCreate, watched.title, watched.profession, watched.specialization, watched.about]
+  )
+
+  useAiPageContext(aiContext)
+
   useEffect(() => {
     if (resume?.pdfUrl) setPdfLabel(resume.pdfUrl.split('/').pop() ?? 'resume.pdf')
     else if (!resume && !isCreate) setPdfLabel('')
@@ -88,8 +107,12 @@ export function ResumeFormPage() {
 
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between gap-4 space-y-0">
             <CardTitle>Основное</CardTitle>
+            <AiAssistantTrigger
+              prompt={`Помоги улучшить резюме для Крыма: должность «${watched.title || 'не указана'}», сфера ${watched.profession}. Предложи блок «О себе» и список навыков.`}
+              label="ИИ: резюме"
+            />
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">

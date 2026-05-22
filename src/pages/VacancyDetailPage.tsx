@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { AiAssistantTrigger, useAiPageContext } from '@/features/ai-assistant'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
@@ -52,6 +53,24 @@ export function VacancyDetailPage() {
 
   const { data: vacancy, isPending: vacancyLoading, isError } = useVacancyQuery(id)
   const { data: vacancyList = [] } = useVacanciesQuery()
+
+  const aiContext = useMemo(() => {
+    if (!vacancy) return null
+    return {
+      page: 'vacancy',
+      summary: `Вакансия «${vacancy.title}» в ${vacancy.city}`,
+      data: {
+        title: vacancy.title,
+        city: vacancy.city,
+        company: vacancy.company?.name ?? 'Компания',
+        profession: vacancy.profession,
+        salary: formatSalary(vacancy.salaryMin, vacancy.salaryMax, vacancy.currency),
+        skills: vacancy.skills.map((s) => s.name).join(', '),
+      },
+    }
+  }, [vacancy])
+
+  useAiPageContext(aiContext)
 
   const applyForm = useForm<VacancyApplyFormValues>({
     resolver: zodResolver(vacancyApplySchema),
@@ -360,6 +379,11 @@ export function VacancyDetailPage() {
                       </Button>
                     </>
                   )}
+                  <AiAssistantTrigger
+                    className="w-full mt-4"
+                    prompt={`Проанализируй вакансию «${vacancy.title}» в ${vacancy.city}: требования, советы соискателю, вопросы работодателю.`}
+                    label="Спросить ИИ про вакансию"
+                  />
                   <Separator className="my-4" />
                   <div className="flex items-center justify-between text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">

@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
+import { AiAssistantTrigger, useAiPageContext } from '@/features/ai-assistant'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
@@ -71,6 +72,24 @@ export function EmployerVacancyFormPage() {
     defaultValues,
   })
 
+  const watched = form.watch()
+
+  const aiContext = useMemo(
+    () => ({
+      page: 'vacancy-form',
+      summary: isNew ? 'Создание новой вакансии' : 'Редактирование вакансии',
+      data: {
+        title: watched.title,
+        city: watched.city,
+        profession: watched.profession,
+        specialization: watched.specialization,
+      },
+    }),
+    [isNew, watched.title, watched.city, watched.profession, watched.specialization]
+  )
+
+  useAiPageContext(aiContext)
+
   useEffect(() => {
     if (vacancy) {
       form.reset({
@@ -118,8 +137,12 @@ export function EmployerVacancyFormPage() {
 
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between gap-4 space-y-0">
             <CardTitle>Основное</CardTitle>
+            <AiAssistantTrigger
+              prompt={`Сгенерируй полное описание вакансии для Крыма: должность «${watched.title || 'не указана'}», город ${watched.city}, сфера ${watched.profession}, специализация ${watched.specialization}. Включи обязанности, требования и условия.`}
+              label="ИИ: описание"
+            />
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">

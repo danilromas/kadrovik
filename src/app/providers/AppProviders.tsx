@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from 'sonner'
+import { AiAssistantWidget } from '@/features/ai-assistant'
 
 const THEME_KEY = 'kadrovik-theme'
 
@@ -52,6 +53,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <ThemeContext.Provider value={themeValue}>
         {children}
+        <AiAssistantWidget />
         <Toaster richColors position="top-center" closeButton />
       </ThemeContext.Provider>
     </QueryClientProvider>

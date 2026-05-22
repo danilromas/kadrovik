@@ -7,6 +7,7 @@ export interface PlatformSettings {
   chatEnabled: boolean
   pipelineEnabled: boolean
   referralsEnabled: boolean
+  aiAssistantEnabled: boolean
 }
 
 const defaults: PlatformSettings = {
@@ -15,6 +16,7 @@ const defaults: PlatformSettings = {
   chatEnabled: true,
   pipelineEnabled: true,
   referralsEnabled: false,
+  aiAssistantEnabled: true,
 }
 
 interface PlatformSettingsState extends PlatformSettings {
@@ -29,6 +31,6 @@ export const usePlatformSettingsStore = create<PlatformSettingsState>()(
       patch: (p) => set((s) => ({ ...s, ...p })),
       reset: () => set({ ...defaults }),
     }),
-    { name: 'kadrovik-platform-settings-v1' }
+    { name: 'kadrovik-platform-settings-v2' }
   )
 )

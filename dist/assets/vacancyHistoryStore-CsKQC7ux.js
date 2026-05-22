@@ -1,0 +1,1 @@
+import{t as e}from"./react-BZGRbK1h.js";import{n as t}from"./middleware-CEMqHbb7.js";var n=e()(t((e,t)=>({viewedIds:[],recordView:n=>{e({viewedIds:[n,...t().viewedIds.filter(e=>e!==n)].slice(0,50)})},clear:()=>e({viewedIds:[]})}),{name:`kadrovik-vacancy-history`}));export{n as t};

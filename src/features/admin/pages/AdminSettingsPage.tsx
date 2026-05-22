@@ -15,6 +15,7 @@ export function AdminSettingsPage() {
   const chatEnabled = usePlatformSettingsStore((s) => s.chatEnabled)
   const pipelineEnabled = usePlatformSettingsStore((s) => s.pipelineEnabled)
   const referralsEnabled = usePlatformSettingsStore((s) => s.referralsEnabled)
+  const aiAssistantEnabled = usePlatformSettingsStore((s) => s.aiAssistantEnabled)
   const patch = usePlatformSettingsStore((s) => s.patch)
 
   const form = useForm<PlatformSettingsFormValues>({
@@ -25,6 +26,7 @@ export function AdminSettingsPage() {
       chatEnabled,
       pipelineEnabled,
       referralsEnabled,
+      aiAssistantEnabled,
     },
   })
 
@@ -35,8 +37,9 @@ export function AdminSettingsPage() {
       chatEnabled,
       pipelineEnabled,
       referralsEnabled,
+      aiAssistantEnabled,
     })
-  }, [maintenance, registrationsOpen, chatEnabled, pipelineEnabled, referralsEnabled, form])
+  }, [maintenance, registrationsOpen, chatEnabled, pipelineEnabled, referralsEnabled, aiAssistantEnabled, form])
 
   const onSubmit = (data: PlatformSettingsFormValues) => {
     patch(data)
@@ -128,6 +131,22 @@ export function AdminSettingsPage() {
                     <div className="space-y-0.5">
                       <FormLabel>Реферальная программа</FormLabel>
                       <FormDescription>Экспериментальный модуль</FormDescription>
+                    </div>
+                    <FormControl>
+                      <Switch checked={field.value} onCheckedChange={field.onChange} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="aiAssistantEnabled"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-center justify-between gap-4 rounded-lg border p-3">
+                    <div className="space-y-0.5">
+                      <FormLabel>ИИ-помощник</FormLabel>
+                      <FormDescription>Плавающий чат на сайте (Gemini / демо-режим)</FormDescription>
                     </div>
                     <FormControl>
                       <Switch checked={field.value} onCheckedChange={field.onChange} />
