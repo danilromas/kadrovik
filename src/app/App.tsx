@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import { PageLoader } from './PageLoader'
 
@@ -108,7 +108,7 @@ const VacancyHistoryPage = lazy(() =>
 
 export function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route element={<AuthLayout />}>
@@ -189,6 +189,6 @@ export function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
